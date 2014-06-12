@@ -2645,7 +2645,7 @@ bool LoadBlockIndex(bool fAllowNew)
             block.nNonce = 812193;
         }
 
- 	    if (true && (block.GetHash() != (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet))) {
+ 	    if (false && (block.GetHash() != (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet))) {
             // This will figure out a valid hash and Nonce if you're
             // creating a different genesis block:
             uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
