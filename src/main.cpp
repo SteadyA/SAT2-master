@@ -941,13 +941,8 @@ static const int CUTOFF_HEIGHT = 100800;	// Height at the end of 5 weeks
 int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 {
 	int64 nSubsidy = 1000 * COIN;
-
-	if(nHeight == 1)
-	{
-		nSubsidy = SAIFTOSFTPADYL;
-		return nSubsidy;
-	}
-	else if(nHeight > CUTOFF_HEIGHT)
+ 
+    if(nHeight > CUTOFF_HEIGHT)
 	{
 		return nMinSubsidy + nFees;
 	}
