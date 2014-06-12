@@ -1031,8 +1031,6 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, uint64 Targ
 {
     const CBlockIndex *BlockLastSolved  = pindexLast;
     const CBlockIndex *BlockReading = pindexLast;
-    //const CBlockHeader *BlockCreating = pblock;
-    //BlockCreating = BlockCreating;
     uint64  PastBlocksMass  = 0;
     int64   PastRateActualSeconds   = 0;
     int64   PastRateTargetSeconds   = 0;
@@ -2642,28 +2640,32 @@ bool LoadBlockIndex(bool fAllowNew)
         block.nBits    = bnProofOfWorkLimit.GetCompact();
         block.nNonce   = 2258563;
 
- 	   if (false  && (block.GetHash() != hashGenesisBlock)) {
-
-		// This will figure out a valid hash and Nonce if you're
-		// creating a different genesis block:
-		    uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
-		    while (block.GetHash() > hashTarget)
-		       {
-		           ++block.nNonce;
-		           if (block.nNonce == 0)
-		           {
-		               printf("NONCE WRAPPED, incrementing time");
-		               ++block.nTime;
-		           }
-		       }
+        if (fTestNet) {
+            block.nTime = nChainStartTime + 1;
+            block.nNonce = 812193;
         }
 
-        //// debug print
-        block.print();
-        printf("block.GetHash() == %s\n", block.GetHash().ToString().c_str());
-        printf("block.hashMerkleRoot == %s\n", block.hashMerkleRoot.ToString().c_str());
-        printf("block.nTime = %u \n", block.nTime);
-        printf("block.nNonce = %u \n", block.nNonce);
+ 	    if (true && (block.GetHash() != (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet))) {
+            // This will figure out a valid hash and Nonce if you're
+            // creating a different genesis block:
+            uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
+            while (block.GetHash() > hashTarget)
+            {
+                ++block.nNonce;
+                if (block.nNonce == 0)
+                {
+                    printf("NONCE WRAPPED, incrementing time");
+                    ++block.nTime;
+                }
+            }
+
+            //// debug print
+            block.print();
+            printf("block.GetHash() == %s\n", block.GetHash().ToString().c_str());
+            printf("block.hashMerkleRoot == %s\n", block.hashMerkleRoot.ToString().c_str());
+            printf("block.nTime = %u \n", block.nTime);
+            printf("block.nNonce = %u \n", block.nNonce);
+        }
 
         assert(block.hashMerkleRoot == uint256("0x276cbf1ab9f4e8ed04efdf2eb3f97cf0f666a37f074b761fed4afd7a044a67a3"));
 		assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
