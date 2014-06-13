@@ -37,8 +37,8 @@ static const double TAX_PERCENTAGE = 0.01;
 static const int64 MAX_MINT_PROOF_OF_STAKE = 0.1 * COIN;	// 5% annual interest
 static const int CUTOFF_POW_BLOCK = 21600; // 20 days
 
-#define FOUNDATION "BKqAh5ojyS7bkjaDHJEWXxMwKNUvUsNZak"
-#define FOUNDATION_TEST "n1EexFn39nDYemEhykVyWvCxoBbhm6Sr47"
+#define FOUNDATION "SNPbVvGwnYWv78tvMq1xPB3UxX55URSadW"
+#define FOUNDATION_TEST "ncGCuuYpYDMkDPiqnVHyCiBcjveW4C13QZ"
 
 static const int64 MIN_TXOUT_AMOUNT = MIN_TX_FEE;
 
