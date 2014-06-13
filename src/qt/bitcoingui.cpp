@@ -148,14 +148,14 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     frameBlocksLayout->addWidget(labelBlocksIcon);
     frameBlocksLayout->addStretch();
 
-    // Set minting pixmap
-    labelMintingIcon->setPixmap(QIcon(":/icons/minting").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+    // Set staking pixmap
+    labelMintingIcon->setPixmap(QIcon(":/icons/staking").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
     labelMintingIcon->setEnabled(false);
-    // Add timer to update minting icon
+    // Add timer to update staking icon
     QTimer *timerMintingIcon = new QTimer(labelMintingIcon);
     timerMintingIcon->start(MODEL_UPDATE_DELAY);
     connect(timerMintingIcon, SIGNAL(timeout()), this, SLOT(updateMintingIcon()));
-    // Add timer to update minting weights
+    // Add timer to update staking weights
     QTimer *timerMintingWeights = new QTimer(labelMintingIcon);
     timerMintingWeights->start(30 * 1000);
     connect(timerMintingWeights, SIGNAL(timeout()), this, SLOT(updateMintingWeights()));
@@ -925,22 +925,22 @@ void BitcoinGUI::updateMintingIcon()
 {
     if (pwalletMain && pwalletMain->IsLocked())
     {
-        labelMintingIcon->setToolTip(tr("Not minting because wallet is locked."));
+        labelMintingIcon->setToolTip(tr("Not staking because wallet is locked."));
         labelMintingIcon->setEnabled(false);
     }
     else if (vNodes.empty())
     {
-        labelMintingIcon->setToolTip(tr("Not minting because wallet is offline."));
+        labelMintingIcon->setToolTip(tr("Not staking because wallet is offline."));
         labelMintingIcon->setEnabled(false);
     }
     else if (IsInitialBlockDownload())
     {
-        labelMintingIcon->setToolTip(tr("Not minting because wallet is syncing."));
+        labelMintingIcon->setToolTip(tr("Not staking because wallet is syncing."));
         labelMintingIcon->setEnabled(false);
     }
     else if (!nWeight)
     {
-        labelMintingIcon->setToolTip(tr("Not minting because you don't have mature coins."));
+        labelMintingIcon->setToolTip(tr("Not staking because you don't have mature coins."));
         labelMintingIcon->setEnabled(false);
     }
     else if (nLastCoinStakeSearchInterval)
@@ -970,7 +970,7 @@ void BitcoinGUI::updateMintingIcon()
     }
     else
     {
-        labelMintingIcon->setToolTip(tr("Not minting."));
+        labelMintingIcon->setToolTip(tr("Not staking."));
         labelMintingIcon->setEnabled(false);
     }
 }

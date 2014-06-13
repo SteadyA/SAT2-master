@@ -183,9 +183,9 @@ private slots:
     /** simply calls showNormalIfMinimized(true) for use in SLOT() macro */
     void toggleHidden();
 
-    /** Update info about minting */
+    /** Update info about staking */
     void updateMintingIcon();
-    /** Update minting weight info */
+    /** Update staking weight info */
     void updateMintingWeights();
 };
 

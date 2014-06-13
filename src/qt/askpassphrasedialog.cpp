@@ -36,8 +36,8 @@ AskPassphraseDialog::AskPassphraseDialog(Mode mode, QWidget *parent) :
             setWindowTitle(tr("Encrypt wallet"));
             break;
         case UnlockMinting:
-            ui->mintingCheckBox->setChecked(true);
-            ui->mintingCheckBox->show();
+            ui->stakingCheckBox->setChecked(true);
+            ui->stakingCheckBox->show();
             // fallthru
         case Unlock: // Ask passphrase
             ui->warningLabel->setText(tr("This operation needs your wallet passphrase to unlock the wallet."));
@@ -153,7 +153,7 @@ void AskPassphraseDialog::accept()
         }
         else
         {
-            fWalletUnlockMintOnly = ui->mintingCheckBox->isChecked();
+            fWalletUnlockMintOnly = ui->stakingCheckBox->isChecked();
             QDialog::accept(); // Success
         }
         break;
