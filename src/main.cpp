@@ -43,7 +43,7 @@ static CBigNum bnProofOfStakeLimitTestNet(~uint256(0) >> 20);
 
 unsigned int nStakeMinAge = 60 * 60 * 24 * 10;	// minimum age for coin age: 10d
 unsigned int nStakeMaxAge = 60 * 60 * 24 * 20;	// stake age of full weight: 20d
-unsigned int nStakeTargetSpacing = 30;			// 30 sec block spacing
+unsigned int nStakeTargetSpacing = 20;			// 20 sec block spacing
 
 int64 nChainStartTime = 1400967191;
 int nCoinbaseMaturity = 30;
@@ -934,13 +934,12 @@ int generateMTRandom(unsigned int s, int range)
 }
 
 
-
 static const int64 nMinSubsidy = 1 * COIN;
 
 // miner's coin base reward based on nBits
 int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 {
-	int64 nSubsidy = 1000 * COIN;
+	int64 nSubsidy = 10 * COIN;
  
     if(nHeight > CUTOFF_POW_BLOCK)
 	{
@@ -948,13 +947,13 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 	}
 
 	// Subsidy is cut in half every week or 20160 blocks, which will occur approximately every month
-	nSubsidy >>= (nHeight / 1080); 
+	nSubsidy >>= (nHeight / 7560); 
     return nSubsidy + nFees;
 }
 
 // miner's coin stake reward based on nBits and coin age spent (coin-days)
 // simple algorithm, not depend on the diff
-const int YEARLY_BLOCKCOUNT = 394200;	// 365 * 1080
+const int YEARLY_BLOCKCOUNT = 1576800;	// 365 * 4320 where 4320 is 1 day at 20s/block
 int64 GetProofOfStakeReward(int64 nCoinAge, unsigned int nBits, unsigned int nTime, int nHeight)
 {
     int64 nRewardCoinYear;
@@ -1129,7 +1128,7 @@ unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfS
         CBigNum bnNew;
         bnNew.SetCompact(pindexPrev->nBits);
         if (!fProofOfStake) {
-            static const int64  BlocksTargetSpacing = 30; // 30 seconds
+            static const int64  BlocksTargetSpacing = 80; // 80 seconds
             unsigned int    TimeDaySeconds  = 60 * 60 * 24;
             int64   PastSecondsMin  = TimeDaySeconds * 0.125;
             int64   PastSecondsMax  = TimeDaySeconds * 7;

@@ -34,7 +34,7 @@ static const int64 MIN_TX_FEE = 10 * CENT;
 static const int64 MIN_RELAY_TX_FEE = 10 * CENT;
 static const int64 MAX_MONEY = 7777777 * COIN;	// 7.77m
 static const double TAX_PERCENTAGE = 0.01;
-static const int64 MAX_MINT_PROOF_OF_STAKE = 0.1 * COIN;	// 5% annual interest
+static const int64 MAX_MINT_PROOF_OF_STAKE = 0.1 * COIN;	// 10% annual interest
 static const int CUTOFF_POW_BLOCK = 21600; // 20 days
 
 #define FOUNDATION "SNPbVvGwnYWv78tvMq1xPB3UxX55URSadW"
