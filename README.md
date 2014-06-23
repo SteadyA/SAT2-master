@@ -1,31 +1,53 @@
-**SaturnCoin (MNT)**
+Saturn²Coin
+=====================================
 
-SaturnCoin is an innovative, secure and energy efficient PoW/PoS coin. It uses a faster PoW distribution mechanism to distribute the initial coins, then after 5 weeks the coin is basically transferred to a pure PoS coin, where the generation of the coin is mainly through the PoS interests.
+http://www.saturn2.co.in
 
-SaturnCoin also adopt a variable PoS rate, which gives the highest payout at 20% the first year, then decrease 5% per year until the 4th year it reaches annual interest rate of 5%, then it will remain at this rate.
+What is Saturn²Coin?
+-------------------------------
 
-Because after 5 weeks it is basically a pure PoS coin, it does not need to be intensively mined, as the PoW payout will remain the minimum. Most coins will be generated through PoS, thus it is a coin that will save a lot of energy compared to other coins.
+Saturn²Coin is a new virtual currency like Bitcoin and Litecoin. While Bitcoin is the Gold of the virtual currency world, and Litecoin being the Silver; Saturn²Coin aims to become the Bronze or Copper to the virtual currency universe. 
 
-SaturnCoin will have a total of 70 billion coins. Initially each block will deliver 100000 to 900000 coins randomly. The PoW payout will be halved each week (7 days). After 5 weeks, the PoW payout will be fixed at 1 coin per block.
+For more information about Saturn²Coin, visit our website at: http://www.saturn2.co.in
 
-PoS will start after at least 20 days of holding of the coins in the wallet. With PoS, the coin is more resilient to 51% attack. 
+Proof of Stake (PoS)
+-------------------------------
 
-**Other Specifications:**
+- First year: 10% interest
+- Second year: 5% interest
+- Third year onwards: 2.5% interest
+- Minimum stake age: 10 days
+- Maximum stake age: 20 days
+- Block target: 20 seconds
 
-- 30 seconds block target
-- 100000 - 900000 coins per block initially
-- PoW payout will be halved every week for the first 5 weeks
-- ~~After 5 weeks, the PoW payout will be fixed at 1 coin per block~~ PoW completely remvoed from block 220000
-- Difficulty retargets every block 
-- PoS variable interests:
-	- 1st year: 20%
-	- 2nd year: 15%
-	- 3rd year: 10%
-	- 4th and subsequent years: 5%
-- Total coins will be 70 billions
-- 4 confirmations for transaction, thus fast 2 mins confirmation for transdactions
-- 50 confirmations for minted blocks
-- 1% premine for bounties, giveaways, development, support and maintenance, new feature developments etc.
+Proof of Work (PoW)
+-------------------------------
 
-- Ports: 12788 (connection) and 12789 (RPC)
+- 10 SAT² per block
+- Reward halving every week
+- Block target: 80 seconds
+- PoW gets cut off at block 21600 (which should take about 20 days)
+  Note: this is only a very short PoW stage, which has a minimal impact on the total supply. The reason we need a PoW phase is because the minimum stake age is 10 days, so   no staking will occur during the initial 10 days. During that time we need PoW to keep the chain moving.
+ 
+Links
+-------------------------------
+Website: http://www.saturn2.co.in
 
+Block Explorer: http://explorer.saturn2.co.in/
+
+BitcoinTalk: https://bitcointalk.org/index.php?topic=556105.0;topicseen
+
+Facebook: https://www.facebook.com/saturncoin
+
+Google Plus: https://plus.google.com/113145153810497618376/posts
+
+Twitter: https://twitter.com/Saturncoins
+
+Reddit: http://www.reddit.com/r/saturncoin/
+
+IRC Channel: http://webchat.freenode.net/?channels=#saturncoin
+
+License
+-------------------------------
+
+Saturn²Coin is released under the terms of the MIT license. See COPYING for more information or see http://opensource.org/licenses/MIT.
