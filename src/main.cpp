@@ -946,7 +946,7 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 		nSubsidy = INITSUPPLY;
 		return nSubsidy;
 	}
-	else if(nHeight < 250)
+	else if(nHeight < 200)
 	{
 		nSubsidy = NORMALIZE;
 		return nSubsidy;
