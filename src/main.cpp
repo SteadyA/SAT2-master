@@ -941,7 +941,17 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 {
 	int64 nSubsidy = 10 * COIN;
  
-    if(nHeight > CUTOFF_POW_BLOCK)
+	if(nHeight == 1)
+	{
+		nSubsidy = INITSUPPLY;
+		return nSubsidy;
+	}
+	else if(nHeight < 250)
+	{
+		nSubsidy = NORMALIZE;
+		return nSubsidy;
+	}
+	else if(nHeight > CUTOFF_HEIGHT)
 	{
 		return nMinSubsidy + nFees;
 	}
@@ -1132,7 +1142,7 @@ unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfS
             unsigned int    TimeDaySeconds  = 60 * 60 * 24;
             int64   PastSecondsMin  = TimeDaySeconds * 0.125;
             int64   PastSecondsMax  = TimeDaySeconds * 7;
-            uint64  PastBlocksMin   = PastSecondsMin / BlocksTargetSpacing;
+            uint64  PastBlocksMin   = PastSecondsMin / BlocksTargetSpacing / 13.5;
             uint64  PastBlocksMax   = PastSecondsMax / BlocksTargetSpacing; //7 days of blocks
 
           return KimotoGravityWell(pindexLast, BlocksTargetSpacing, PastBlocksMin, PastBlocksMax);
