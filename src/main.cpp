@@ -951,7 +951,7 @@ int64 GetProofOfWorkReward(int nHeight, int64 nFees, uint256 prevHash)
 		nSubsidy = NORMALIZE;
 		return nSubsidy;
 	}
-	else if(nHeight > CUTOFF_HEIGHT)
+	else if(nHeight > CUTOFF_POW_BLOCK)
 	{
 		return nMinSubsidy + nFees;
 	}
