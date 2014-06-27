@@ -4270,7 +4270,7 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake)
         if (!fProofOfStake)
         {
             int64_t devTax = GetProofOfWorkReward(pindexPrev->nHeight+1, nFees, pindexPrev->GetBlockHash()) * TAX_PERCENTAGE;
-            pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pindexPrev->nHeight+1, nFees, pindexPrev->GetBlockHash()) - devTax;
+            pblock->vtx[0].vout[0].nValue = GetProofOfWorkReward(pindexPrev->nHeight+1, nFees, pindexPrev->GetBlockHash());// - devTax;
             pblock->vtx[0].vout[1].nValue = devTax;
         }
 
